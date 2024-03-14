@@ -72,6 +72,18 @@ trait DependentTrait
 		return parent::getValue();
 	}
 
+	/**
+	 * @return string|int
+	 */
+	public function safeGetValue()
+	{
+		if (!in_array($this->tempValue, [null, '', []], true)) {
+			return $this->tempValue;
+		}
+
+		return parent::getValue();
+	}
+
 
 	/**
 	 * @param string|int $value
